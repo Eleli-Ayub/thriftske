@@ -4,7 +4,7 @@ import { Input } from "../Elements/Inputs";
 const Searchbar = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   return (
-    <div className="py-3 px-5 flex flex-row gap-5 items-center">
+    <div className="py-3 px-5 flex flex-row gap-5 items-center sticky bg-white z-10 top-0 right-0">
       <Input
         value={searchQuery}
         onChange={(e: any) => {
