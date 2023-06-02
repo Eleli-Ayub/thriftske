@@ -6,6 +6,7 @@ import {
   Button,
   CardFooter,
 } from "@material-tailwind/react";
+import { useRouter } from "next/router";
 
 interface productProps {
   price: string;
@@ -13,8 +14,14 @@ interface productProps {
 }
 
 export default function Productcard({ price, title }: productProps) {
+  const router = useRouter();
   return (
-    <Card className="w-96 cursor-pointer hover:scale-105 duration-500 hover:shadow-2xl">
+    <Card
+      onClick={() => {
+        router.push("/singleproduct");
+      }}
+      className="w-96 cursor-pointer hover:scale-105 duration-500 hover:shadow-2xl"
+    >
       <CardHeader shadow={false} floated={false} className="h-96">
         <img
           src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80"

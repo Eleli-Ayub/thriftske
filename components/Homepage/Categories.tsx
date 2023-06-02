@@ -5,12 +5,17 @@ import {
   Typography,
   Avatar,
 } from "@material-tailwind/react";
+import { useRouter } from "next/router";
 interface categoryProps {
   title: string;
 }
 export default function CategoryItem({ title }: categoryProps) {
+  const router = useRouter();
   return (
     <Card
+      onClick={() => {
+        router.push("/categories");
+      }}
       shadow={false}
       className="relative grid h-[25rem] w-[300px] max-w-[28rem] min-w-[300px] items-end justify-center overflow-hidden text-center hover:scale-105 duration-500 cursor-pointer"
     >

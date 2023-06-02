@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import user from "../images/user.jpeg";
+import user from "../../assets/images/user.jpeg";
 import {
   BsFacebook,
   BsFillTelephoneFill,
@@ -9,12 +9,19 @@ import {
   BsTwitter,
   BsWhatsapp,
 } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 const Topbarstrip = () => {
+  const router = useRouter();
   const [login, setLogin] = useState<boolean>(false);
   return (
     <div className="w-full px-10 py-3 bg-slate-500 flex flex-row  items-center justify-between">
-      <h3 className="font-bold text-xl text-gray-300">
+      <h3
+        onClick={() => {
+          router.push("/");
+        }}
+        className="font-bold text-xl text-gray-300 hover:text-red-400 cursor-pointer duration-300"
+      >
         <i>Thrifts ke</i>
       </h3>
 
