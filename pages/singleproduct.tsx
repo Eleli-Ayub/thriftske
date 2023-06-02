@@ -40,10 +40,10 @@ function singleproduct() {
           <div>
             <h1 className=" font-bold mb-1">Sizes</h1>
             <div className="flex flex-row gap-1 child:border child:flex child:items-center child:justify-center child:border-stone-600 child:rounded-lg">
-              <h1>32</h1>
-              <h1>35</h1>
-              <h1>37</h1>
-              <h1>40</h1>
+              <h1>32,</h1>
+              <h1>35,</h1>
+              <h1>37,</h1>
+              <h1>40.</h1>
             </div>
           </div>
           <div>
