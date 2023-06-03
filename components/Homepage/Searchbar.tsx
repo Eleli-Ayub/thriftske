@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Input } from "../Elements/Inputs";
 import { useRouter } from "next/router";
-
+import { BsFillGrid1X2Fill } from "react-icons/bs";
 const Searchbar = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const router = useRouter();
   return (
-    <div className="py-3 px-5 flex flex-row gap-5 items-center sticky bg-white z-10 top-0 right-0">
+    <div className="py-3 px-5 flex flex-row lg:gap-5 gap-2 items-center sticky bg-white z-10 lg:top-0 lg:right-0 top-[50px] ">
       <Input
         value={searchQuery}
         onChange={(e: any) => {
@@ -14,7 +14,8 @@ const Searchbar = () => {
         }}
         placeholder="Search"
       />
-      <div className="flex flex-row gap-2 text-red-500 font-serif child-hover:text-gray-600 child:cursor-pointer border-l-2 px-3 border-r-2">
+      <BsFillGrid1X2Fill className="text-black/60 text-lg" />
+      <div className="hidden lg:flex flex-row gap-2 text-red-500 font-serif child-hover:text-gray-600 child:cursor-pointer border-l-2 px-3 border-r-2">
         <h3
           onClick={() => {
             router.push("topsellers");
@@ -37,7 +38,7 @@ const Searchbar = () => {
           Browse
         </h3>
       </div>
-      <div className="flex flex-row gap-2 text-red-500 font-serif child-hover:text-gray-600 child:cursor-pointer pr-3 border-r-2">
+      <div className="hidden lg:flex flex-row gap-2 text-red-500 font-serif child-hover:text-gray-600 child:cursor-pointer pr-3 border-r-2">
         <h3
           onClick={() => {
             router.push("categories");
@@ -67,7 +68,7 @@ const Searchbar = () => {
           Unisex
         </h3>
       </div>
-      <div className="flex flex-row gap-2 text-red-500 font-serif child-hover:text-gray-600 child:cursor-pointer pr-3 border-r-2">
+      <div className="hidden lg:flex flex-row gap-2 text-red-500 font-serif child-hover:text-gray-600 child:cursor-pointer pr-3 border-r-2">
         <h3
           onClick={() => {
             router.push("categories");
@@ -111,7 +112,7 @@ const Searchbar = () => {
           Sweaters
         </h3>
       </div>
-      <div className="flex flex-row gap-2 text-stone-800 font-serif child-hover:text-gray-600 child:cursor-pointer pr-3">
+      <div className="hidden lg:flex flex-row gap-2 text-stone-800 font-serif child-hover:text-gray-600 child:cursor-pointer pr-3">
         <h3>Contact Us</h3>
         <h3>Register</h3>
         <h3>FAQs</h3>

@@ -9,26 +9,28 @@ import {
   BsTwitter,
   BsWhatsapp,
 } from "react-icons/bs";
+import { AiOutlineMenu } from "react-icons/ai";
 import { useRouter } from "next/router";
 
 const Topbarstrip = () => {
   const router = useRouter();
   const [login, setLogin] = useState<boolean>(false);
   return (
-    <div className="w-full px-10 py-3 bg-slate-500 flex flex-row  items-center justify-between">
+    <div className="sticky lg:relative top-0 left-0 bg-white z-10 w-full px-5 lg:px-10 py-3 bg-slate-500 flex flex-row  items-center justify-between">
       <h3
         onClick={() => {
           router.push("/");
         }}
-        className="font-bold text-xl text-gray-300 hover:text-red-400 cursor-pointer duration-300"
+        className=" flex items-center gap-3 font-bold text-md lg:text-xl text-gray-300 hover:text-red-400 cursor-pointer duration-300"
       >
+        <AiOutlineMenu className="text-black/60 lg:hidden" />
         <i>Thrifts ke</i>
       </h3>
 
-      <h3 className="text-gray-400">
+      <h3 className="hidden lg:flex text-gray-400">
         <i>Your one stop thrift shop</i>
       </h3>
-      <div className="flex flex-row gap-3 text-stone-800 text-2xl">
+      <div className="flex flex-row gap-3 text-stone-800 lg:text-2xl text-lg ">
         <BsFacebook />
         <BsTwitter />
         <BsInstagram />
@@ -37,7 +39,7 @@ const Topbarstrip = () => {
         <BsFillTelephoneFill />
       </div>
 
-      <div>
+      <div className="lg:block hidden">
         {login ? (
           <div>
             <Image

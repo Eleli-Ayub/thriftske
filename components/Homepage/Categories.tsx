@@ -17,7 +17,7 @@ export default function CategoryItem({ title }: categoryProps) {
         router.push("/categories");
       }}
       shadow={false}
-      className="relative grid h-[25rem] w-[300px] max-w-[28rem] min-w-[300px] items-end justify-center overflow-hidden text-center hover:scale-105 duration-500 cursor-pointer"
+      className="relative grid lg:h-[25rem] h-[10rem] w-[150px] lg:w-[300px] max-w-[28rem] lg:min-w-[300px] items-end justify-center overflow-hidden text-center hover:scale-105 duration-500 cursor-pointer"
     >
       <CardHeader
         floated={false}
