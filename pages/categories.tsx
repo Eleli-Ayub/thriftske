@@ -6,7 +6,7 @@ function Categories() {
   return (
     <div>
       <Searchbar />
-      <div className="flex w-full justify-start items-center mt-10 gap-2 flex-wrap child:mb-5">
+      <div className="flex w-full justify-start items-center mt-5 lg:mt-10 gap-2 flex-wrap child:mb-5">
         <Productcard title="Cigarret Jeans" price="2200" />
         <Productcard title="Ladies Sexy Lingerie" price="2200" />
         <Productcard title="Black Leather Coat" price="2000" />
