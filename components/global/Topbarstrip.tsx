@@ -12,19 +12,30 @@ import {
 import { AiOutlineMenu } from "react-icons/ai";
 import { useRouter } from "next/router";
 
-const Topbarstrip = () => {
+interface topBarStripProps {
+  showDrawer: boolean;
+  setShowDrawer: (value: boolean) => void;
+}
+
+const Topbarstrip = ({ showDrawer, setShowDrawer }: topBarStripProps) => {
   const router = useRouter();
   const [login, setLogin] = useState<boolean>(false);
   return (
     <div className="sticky lg:relative top-0 left-0 bg-white z-10 w-full px-5 lg:px-10 py-3 bg-slate-500 flex flex-row  items-center justify-between">
-      <h3
+      <AiOutlineMenu
         onClick={() => {
-          router.push("/");
+          setShowDrawer(!showDrawer);
         }}
-        className=" flex items-center gap-3 font-bold text-md lg:text-xl text-gray-300 hover:text-red-400 cursor-pointer duration-300"
-      >
-        <AiOutlineMenu className="text-black/60 lg:hidden" />
-        <i>Thrifts ke</i>
+        className="text-black/60 lg:hidden"
+      />
+      <h3 className=" flex items-center gap-3 font-bold text-md lg:text-xl text-gray-300 hover:text-red-400 cursor-pointer duration-300">
+        <i
+          onClick={() => {
+            router.push("/");
+          }}
+        >
+          Thrifts ke
+        </i>
       </h3>
 
       <h3 className="hidden lg:flex text-gray-400">
