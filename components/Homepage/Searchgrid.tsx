@@ -1,39 +1,24 @@
-import React, { useState } from "react";
-import { Input } from "../Elements/Inputs";
 import { useRouter } from "next/router";
-import { BsFillGrid1X2Fill } from "react-icons/bs";
-import Searchgrid from "./Searchgrid";
-const Searchbar = () => {
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [showSearchGrid, setSearchGrid] = useState<boolean>(false);
+import React from "react";
+import { GiCancel } from "react-icons/gi";
+interface searchGridprops {
+  showSearchGrid: boolean;
+  setSearchGrid: (searchGrid: boolean) => void;
+}
+
+function Searchgrid({ showSearchGrid, setSearchGrid }: searchGridprops) {
   const router = useRouter();
   return (
-    <div className="py-3 px-5 flex flex-row lg:gap-5 gap-2 items-center sticky bg-white z-10 lg:top-0 lg:right-0 top-[50px] ">
-      <Input
-        value={searchQuery}
-        onChange={(e: any) => {
-          setSearchQuery(e.target.value);
-        }}
-        placeholder="Search"
-      />
-
-      <BsFillGrid1X2Fill
-        onClick={() => {
-          setSearchGrid(!showSearchGrid);
-        }}
-        className="text-black/60 text-lg"
-      />
-      {showSearchGrid ? (
-        <div className="fixed top-0 w-5/6 h-5/6 flex flex-col items-center justify-center ">
-          <Searchgrid
-            setSearchGrid={setSearchGrid}
-            showSearchGrid={showSearchGrid}
-          />
-        </div>
-      ) : (
-        ""
-      )}
-      <div className="hidden lg:flex flex-row gap-2 text-red-500 font-serif child-hover:text-gray-600 child:cursor-pointer border-l-2 px-3 border-r-2">
+    <div className="absolute bg-gray-200 flex child:flex gap-5 py-5 child:text-lg  px-5 text-black/60 flex-col child:flex-row child:flex-wrap w-full rounded-xl overflow-hidden  ">
+      <div className=" font-serif  justify-center items-center">
+        <GiCancel
+          className="text-red-300 text-xl "
+          onClick={() => {
+            setSearchGrid(!showSearchGrid);
+          }}
+        />
+      </div>
+      <div className=" flex-row gap-2 child-hover:text-gray-600 child:cursor-pointer">
         <h3
           onClick={() => {
             router.push("topsellers");
@@ -56,7 +41,7 @@ const Searchbar = () => {
           Browse
         </h3>
       </div>
-      <div className="hidden lg:flex flex-row gap-2 text-red-500 font-serif child-hover:text-gray-600 child:cursor-pointer pr-3 border-r-2">
+      <div className=" lg:flex flex-row gap-2  font-serif child-hover:text-gray-600 child:cursor-pointer pr-3 border-r-2">
         <h3
           onClick={() => {
             router.push("categories");
@@ -86,7 +71,7 @@ const Searchbar = () => {
           Unisex
         </h3>
       </div>
-      <div className="hidden lg:flex flex-row gap-2 text-red-500 font-serif child-hover:text-gray-600 child:cursor-pointer pr-3 border-r-2">
+      <div className=" lg:flex flex-row gap-2  font-serif child-hover:text-gray-600 child:cursor-pointer pr-3 border-r-2">
         <h3
           onClick={() => {
             router.push("categories");
@@ -130,13 +115,8 @@ const Searchbar = () => {
           Sweaters
         </h3>
       </div>
-      <div className="hidden lg:flex flex-row gap-2 text-stone-800 font-serif child-hover:text-gray-600 child:cursor-pointer pr-3">
-        <h3>Contact Us</h3>
-        <h3>Register</h3>
-        <h3>FAQs</h3>
-      </div>
     </div>
   );
-};
+}
 
-export default Searchbar;
+export default Searchgrid;

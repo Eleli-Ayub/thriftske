@@ -1,3 +1,4 @@
+import Searchgrid from "@/components/Homepage/Searchgrid";
 import Drawer from "@/components/global/Drawer";
 import Footer from "@/components/global/Footer";
 import Topbarstrip from "@/components/global/Topbarstrip";
@@ -8,6 +9,8 @@ import { useState } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [showDrawer, setShowDrawer] = useState<boolean>(false);
+  const [showSearchGrid, setSearchGrid] = useState<boolean>(false);
+
   return (
     <div className="">
       <ThemeProvider>
